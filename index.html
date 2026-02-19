@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHR 360° - Contrôle de Gestion Automatisé par IA</title>
+    <meta name="description" content="Transformez vos factures en décisions en 15 minutes. Gagnez 8h/semaine et 38'000 CHF/an avec CHR 360°.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .hero h1 span {
+            color: #e94560;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: #e94560;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 60px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #e94560;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        /* Problem Section */
+        .problem {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #1a1a2e;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .problem-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #e94560;
+        }
+        
+        /* Solution Section */
+        .solution {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .solution-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .step {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+            padding: 20px;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #e94560;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 15px;
+        }
+        
+        .arrow {
+            font-size: 2rem;
+            color: #e94560;
+            padding: 20px;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1a1a2e;
+        }
+        
+        .feature-list {
+            list-style: none;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .feature-list li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .pricing-card {
+            background: white;
+            border: 3px solid #e0e0e0;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pricing-card.featured {
+            border-color: #e94560;
+            transform: scale(1.05);
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+        
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #e94560;
+            margin: 20px 0;
+        }
+        
+        .pricing-price span {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 20px;
+            background: #1a1a2e;
+            color: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-card {
+            background: #16213e;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #e94560;
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #e94560;
+        }
+        
+        /* CTA Section */
+        .final-cta {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #e94560 0%, #c93554 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+        
+        .final-cta p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0f0f1e;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1.1rem; }
+            .hero-stats { flex-direction: column; gap: 30px; }
+            .solution-steps { flex-direction: column; }
+            .arrow { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1><span>CHR 360°</span><br>Contrôle de Gestion Automatisé</h1>
+            <p>Transformez vos factures en décisions en 15 minutes</p>
+            <a href="#demo" class="cta-button">Démo Gratuite 30 Jours</a>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">8h</div>
+                    <div class="stat-label">gagnées/semaine</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">38'000 CHF</div>
+                    <div class="stat-label">économisés/an</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">15 min</div>
+                    <div class="stat-label">photo → KPI</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2 class="section-title">Vous perdez 40'000 CHF par an sans le savoir</h2>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">⏱️</div>
+                    <h3>8-12h/semaine perdues</h3>
+                    <p>Saisie manuelle de factures, calculs Excel, tableaux de bord...</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">😰</div>
+                    <h3>Découverte tardive</h3>
+                    <p>Anomalies détectées avec 2-3 semaines de retard</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">❌</div>
+                    <h3>15-20% d'erreurs</h3>
+                    <p>Factures oubliées, montants mal saisis</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">📉</div>
+                    <h3>Pilotage à l'aveugle</h3>
+                    <p>Aucune visibilité temps réel</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <h2 class="section-title">La solution : Automatisation complète</h2>
+            
+            <div class="solution-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Photo</h3>
+                    <p>Prenez votre facture en photo</p>
+                </div>
+                
+                <div class="arrow">→</div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>IA</h3>
+                    <p>Extraction en 30 secondes</p>
+                </div>
+                
+                <div class="arrow">→</div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>KPIs</h3>
+                    <p>Mise à jour automatique</p>
+                </div>
+                
+                <div class="arrow">→</div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Alertes</h3>
+                    <p>Si problème détecté</p>
+                </div>
+                
+                <div class="arrow">→</div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Dashboard</h3>
+                    <p>Accessible 24/7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Fonctionnalités complètes</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Extraction Automatique</h3>
+                    <ul class="feature-list">
+                        <li>Factures PDF, photos, emails</li>
+                        <li>Tickets Z de caisse</li>
+                        <li>97% de précision</li>
+                        <li>Support manuscrit</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>KPIs Temps Réel</h3>
+                    <ul class="feature-list">
+                        <li>Food & Beverage Cost</li>
+                        <li>CA & Ticket Moyen</li>
+                        <li>Trésorerie 30/60j</li>
+                        <li>Rentabilité par service</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚨</div>
+                    <h3>Alertes Intelligentes</h3>
+                    <ul class="feature-list">
+                        <li>Food cost > 30%</li>
+                        <li>Facture > 2'000 CHF</li>
+                        <li>Chute CA > 20%</li>
+                        <li>Échéances proches</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Dashboard Visuel</h3>
+                    <ul class="feature-list">
+                        <li>Graphiques interactifs</li>
+                        <li>Multi-appareils</li>
+                        <li>Export Excel/PDF</li>
+                        <li>Multi-utilisateurs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="tarifs">
+        <div class="container">
+            <h2 class="section-title">Tarification transparente</h2>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>🆓 Freemium</h3>
+                    <div class="pricing-price">0 CHF<span>/mois</span></div>
+                    <ul class="pricing-features">
+                        <li>✅ 50 documents/mois</li>
+                        <li>✅ Dashboard basique</li>
+                        <li>✅ Support communautaire</li>
+                        <li>❌ Pas d'alertes</li>
+                    </ul>
+                    <a href="#demo" class="cta-button">Commencer</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <h3>⭐ Starter</h3>
+                    <div class="pricing-price">199 CHF<span>/mois</span></div>
+                    <ul class="pricing-features">
+                        <li>✅ 200 documents/mois</li>
+                        <li>✅ Dashboard complet</li>
+                        <li>✅ Alertes email</li>
+                        <li>✅ Support Telegram 24h</li>
+                        <li>✅ 1 établissement</li>
+                    </ul>
+                    <a href="#demo" class="cta-button">Essai Gratuit</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>🚀 Business</h3>
+                    <div class="pricing-price">399 CHF<span>/mois</span></div>
+                    <ul class="pricing-features">
+                        <li>✅ Documents illimités</li>
+                        <li>✅ Multi-établissements (5)</li>
+                        <li>✅ Alertes SMS + Email</li>
+                        <li>✅ Support 2h</li>
+                        <li>✅ API personnalisée</li>
+                    </ul>
+                    <a href="#demo" class="cta-button">Nous contacter</a>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 40px; font-size: 1.2rem;">
+                🎁 <strong>Offre de lancement : -50% pendant 3 mois</strong> • Code : LAUNCH2026
+            </p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Ils nous font confiance</h2>
+            
+            <div style="text-align: center; margin-bottom: 40px; font-size: 1.2rem;">
+                <strong>127 restaurants</strong> • <strong>98,2% satisfaction</strong> • <strong>4,8/5 ⭐</strong>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "CHR 360° a changé ma vie. Je passe maintenant 2 heures par mois sur la compta au lieu de 8 heures par semaine."
+                    </div>
+                    <div class="testimonial-author">Sophie M., Brasserie Le Lacustre (Genève)</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "On a détecté une fraude fournisseur grâce aux alertes. Économisé 15'000 francs."
+                    </div>
+                    <div class="testimonial-author">Pierre D., Restaurant L'Olivier (Genève)</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Setup en 2h, ROI en 3 semaines. Incroyable."
+                    </div>
+                    <div class="testimonial-author">Thomas L., La Table Ronde (Neuchâtel)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta" id="demo">
+        <div class="container">
+            <h2>Prêt à gagner 38'000 CHF par an ?</h2>
+            <p>Test gratuit 30 jours • Aucune carte de crédit requise</p>
+            
+            <div style="margin: 40px 0;">
+                <a href="mailto:contact@chr360.ch" class="cta-button" style="background: white; color: #e94560;">Réserver une Démo</a>
+            </div>
+            
+            <div style="font-size: 1.1rem; opacity: 0.9;">
+                📧 contact@chr360.ch<br>
+                📱 +41 XX XXX XX XX<br>
+                💬 Telegram : @CHR360_Support
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CHR 360° - Tous droits réservés</p>
+            <p style="margin-top: 10px; opacity: 0.7;">
+                Contrôle de gestion automatisé par IA pour restaurants et PME
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
