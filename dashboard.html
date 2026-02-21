@@ -1654,7 +1654,7 @@ function uploadFile(file, type) {
 
     fetch(APPS_SCRIPT_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain' },
       body: payload
     })
       .then(function(r) { return r.json(); })
